@@ -1,9 +1,11 @@
 const express = require('express')
 const router = express.Router()
-const todosController = require('../controllers/todos') 
+const todosController = require('../controllers/todos')
 const { ensureAuth } = require('../middleware/auth')
 
 router.get('/', ensureAuth, todosController.getTodos)
+// added a shareTodo POST route
+router.post('/shareTodo', todosController.shareTodo)
 
 router.post('/createTodo', todosController.createTodo)
 
